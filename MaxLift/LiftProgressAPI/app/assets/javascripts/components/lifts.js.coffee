@@ -5,12 +5,20 @@
   getDefaultProps: ->
     lifts: []
 
+  addLift: (lift) ->
+  	lifts = @state.lifts.slice()
+  	lifts.push lift
+  	@setState lifts: lifts
+
   render: ->
     React.DOM.div
       className: 'lifts'
       React.DOM.h1
         className: 'title'
         'Previous Lifts'
+
+      React.createElement LiftForm, handleNewLift: @addLift
+
       React.DOM.table
         className: 'table table-bordered'
         React.DOM.thead null
