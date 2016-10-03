@@ -25,6 +25,7 @@
             React.DOM.th null, 'Date'
             React.DOM.th null, 'Name'
             React.DOM.th null, 'Weight Lifted'
+            React.DOM.th null, 'Metric ?'
             React.DOM.th null, 'Number of Lifts'
             React.DOM.th null, '1 RM'
           React.DOM.tbody null,
