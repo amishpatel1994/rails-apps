@@ -1,0 +1,38 @@
+I"Ê(function() {
+  var lift;
+
+  this.Lifts = React.createClass({
+    getInitialState: function() {
+      return {
+        lifts: this.props.data
+      };
+    },
+    getDefaultProps: function() {
+      return {
+        lifts: []
+      };
+    },
+    render: function() {
+      return React.DOM.div;
+    },
+    className: 'Lifts'
+  }, React.DOM.h1({
+    className: 'title'
+  }, 'Lifts'), Reach.DOM.table({
+    className: 'table table-bordered'
+  }, React.DOM.thead(null), React.DOM.th(null, 'Date'), React.DOM.th(null, 'Name'), React.DOM.th(null, 'Wight Lifted'), React.DOM.th(null, 'Number of Reps'), React.DOM.th(null, 'One RM'), React.DOM.tbody(null), (function() {
+    var i, len, ref, results;
+    ref = this.state.lifts;
+    results = [];
+    for (i = 0, len = ref.length; i < len; i++) {
+      lift = ref[i];
+      results.push(React.createElement(Lift, {
+        key: lift.id,
+        lift: lift
+      }));
+    }
+    return results;
+  }).call(this)));
+
+}).call(this);
+:ET

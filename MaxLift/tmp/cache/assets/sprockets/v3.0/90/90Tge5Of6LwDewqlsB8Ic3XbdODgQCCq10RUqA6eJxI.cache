@@ -1,0 +1,22 @@
+I"A(function() {
+  this.Lifts = React.createClass({
+    getInitialState: function() {
+      return {
+        lifts: this.props.data
+      };
+    },
+    render: function() {
+      ({
+        className: 'Lifts'
+      });
+      React.DOM.h1({
+        className: 'title'
+      }, 'Lifts');
+      return Reach.DOM.table({
+        className: 'table table-bordered'
+      }, React.DOM.thead(null), React.DOM.th(null, 'Date'), React.DOM.th(null, 'Name'), React.DOM.th(null, 'Wight Lifted'), React.DOM.th(null, 'Number of Reps'), React.DOM.th(null, 'One RM'));
+    }
+  });
+
+}).call(this);
+:ET

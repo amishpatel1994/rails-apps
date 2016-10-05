@@ -1,0 +1,94 @@
+I"K
+(function() {
+  this.LiftForm = React.createClass({
+    getInitialState: function() {
+      return {
+        date: '',
+        name: '',
+        is_metric: '',
+        weight_lifted: '',
+        num_reps: '',
+        one_rm: ''
+      };
+    },
+    handleValueChange: function(e) {
+      var obj, value_name;
+      value_name = e.target.name;
+      return this.setState((
+        obj = {},
+        obj["" + value_name] = e.target.value,
+        obj
+      ));
+    },
+    valid: function() {
+      return this.state.date && this.state.name && this.state.is_metric(this.state.weight_lifted && this.state.num_reps && this.state.one_rm);
+    },
+    handleSubmit: function(e) {
+      e.preventDefault();
+      return $.post('', {
+        lift: this.state
+      }, (function(_this) {
+        return function(data) {
+          _this.props.handleNewLift(data);
+          return _this.setState(_this.getInitialState());
+        };
+      })(this), "JSON");
+    },
+    render: function() {
+      return React.DOM.form({
+        className: 'form-inline',
+        onSubmit: this.handleSubmit
+      }, React.DOM.div({
+        className: 'form-group'
+      }, React.DOM.input({
+        type: 'date',
+        className: 'form-control',
+        placeholder: 'date',
+        name: 'date',
+        value: this.state.date,
+        onChange: this.handleValueChange
+      }), React.DOM.input({
+        type: 'text',
+        className: 'form-control',
+        placeholder: 'name',
+        name: 'name',
+        value: this.state.name,
+        onChange: this.handleValueChange
+      }), React.DOM.input({
+        type: 'boolean',
+        className: 'form-control',
+        placeholder: 'Is metric?',
+        name: 'is_metric',
+        value: this.state.is_metric,
+        onChange: this.handleValueChange
+      }), React.DOM.input({
+        type: 'text',
+        className: 'form-control',
+        placeholder: 'weight lifted',
+        name: 'weight_lifted',
+        value: this.state.weight_lifted,
+        onChange: this.handleValueChange
+      }), React.DOM.input({
+        type: 'text',
+        className: 'form-control',
+        placeholder: 'Number of reps',
+        name: 'num_reps',
+        value: this.state.num_reps,
+        onChange: this.handleValueChange
+      }), React.DOM.input({
+        type: 'text',
+        className: 'form-control',
+        placeholder: 'One RM',
+        name: 'one_rm',
+        value: this.state.one_rm,
+        onChange: this.handleValueChange
+      }), React.DOM.button({
+        type: 'submit',
+        className: 'btn btn-primary',
+        disabled: !this.valid()
+      }, 'Create Lift')));
+    }
+  });
+
+}).call(this);
+:ET

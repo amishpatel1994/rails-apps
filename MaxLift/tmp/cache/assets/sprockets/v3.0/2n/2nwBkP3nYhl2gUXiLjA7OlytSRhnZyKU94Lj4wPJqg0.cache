@@ -1,0 +1,9 @@
+I"¡(function() {
+  this.Lift = React.createClass({
+    render: function() {
+      return React.DOM.tr(null, React.DOM.td(null, this.props.lift.date), React.DOM.td(null, this.props.lift.name), React.DOM.td(null, this.props.lift.weight_lifted), React.DOM.td(null, this.props.lift.is_metric.toString()), React.DOM.td(null, this.props.lift.num_reps), React.DOM.td(null, this.props.lift.one_rm));
+    }
+  });
+
+}).call(this);
+:ET

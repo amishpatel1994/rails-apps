@@ -1,0 +1,14 @@
+I"ß(function() {
+  this.LLifts = React.createClass({
+    render: function() {
+      ({
+        className: 'Lifts'
+      });
+      return React.DOM.h1({
+        className: 'title'
+      }, 'Lifts');
+    }
+  });
+
+}).call(this);
+:ET
