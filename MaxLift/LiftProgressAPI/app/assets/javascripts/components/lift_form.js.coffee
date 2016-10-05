@@ -1,3 +1,6 @@
+coefficients = {
+    1: 1, 2: .943, 3: .906, 4: .881, 5: .851, 6: .831, 7: .807, 8: .786, 9: .765, 10: .744
+}
 @LiftForm = React.createClass
     getInitialState: ->
         date: ''
@@ -6,13 +9,10 @@
         weight_lifted: ''
         num_reps: ''
         one_rm: 0
-        coefficients: {
-            1: 1, 2: .943, 3: .906, 4: .881, 5: .851, 6: .831, 7: .807, 8: .786, 9: .765, 10: .744
-        }
   
     calculateOneRm: ->
         if @state.weight_lifted and @state.num_reps
-          @state.one_rm = @state.weight_lifted / @state.coefficients[@state.num_reps]
+          @state.one_rm = @state.weight_lifted / coefficients[@state.num_reps]
         else
           0
 
